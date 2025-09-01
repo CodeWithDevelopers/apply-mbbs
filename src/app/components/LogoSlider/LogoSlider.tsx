@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import "./LogoSlider.css";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface CollegeApiResponse {
   id: number;
@@ -16,7 +17,7 @@ interface CollegeApiResponse {
 }
 
 interface University {
-  slug: any;
+  slug: string;
   id: number;
   name: string;
   logo: string;
@@ -88,7 +89,7 @@ const LogoSlider = () => {
 
   useEffect(() => {
     fetchColleges();
-  }, []);
+  }, [fetchColleges]);
 
   const totalSlides = universities.length;
   const shouldScroll = totalSlides > itemsPerView; // ✅ Only scroll if we have more than itemsPerView
@@ -157,9 +158,14 @@ const LogoSlider = () => {
                     .fill(null)
                     .map((_, i) => <UniversityCardSkeleton key={i} />)
                 : universities.map((u, i) => (
-                    <div style={{ cursor: "pointer" }} key={`${u.id}-${i}`} onClick={() => router.push(`/colleges/${u.slug}`)} className="university-card">
+                    <div
+                      style={{ cursor: "pointer" }}
+                      key={`${u.id}-${i}`}
+                      onClick={() => router.push(`/colleges/${u.slug}`)}
+                      className="university-card"
+                    >
                       <div className="university-logo">
-                        <img
+                        <Image
                           src={u.logo}
                           alt={u.name}
                           className="w-24 h-24 object-contain mb-2"

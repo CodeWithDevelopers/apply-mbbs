@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./SimilarColleges.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -44,7 +44,7 @@ const SimilarColleges: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   // Fetch colleges from API
-  const fetchColleges = async () => {
+  const fetchColleges = useCallback(async () => {
     try {
       const res = await fetch(
         `${api_url}/api/colleges-and-univercities?populate=*`
@@ -82,7 +82,7 @@ const SimilarColleges: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [api_url, asset_url]);
 
   useEffect(() => {
     fetchColleges();
@@ -160,7 +160,12 @@ const SimilarColleges: React.FC = () => {
                     <span className="rating-number">{college.rating}</span>
                     <span className="review-count">({college.reviews})</span>
                   </div>
-                  <button className="view-details-btn" onClick={() => router.push(`/colleges/${college.slug}`)}>View Details</button>
+                  <button
+                    className="view-details-btn"
+                    onClick={() => router.push(`/colleges/${college.slug}`)}
+                  >
+                    View Details
+                  </button>
                 </div>
               </div>
             ))}

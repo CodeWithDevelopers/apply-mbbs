@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import "./discovery-collage.css";
 import filtersData from "@/utils/filters.js";
 import CollegeDataSection from "@/components/DiscoverCollages/CollegeDataSection";
-import { div } from "framer-motion/client";
 
 type FiltersData = {
   [key: string]: {
@@ -12,10 +11,6 @@ type FiltersData = {
     options: Array<{ value: string; count: number }>;
   };
 };
-
-interface PageProps {
-  params: { slug: string };
-}
 
 interface College {
   rank: number;
@@ -32,17 +27,7 @@ interface College {
   logo?: string;
 }
 
-interface FilterOption {
-  value: string;
-  count: number;
-}
-
-interface FilterCategory {
-  label: string;
-  options: FilterOption[];
-}
-
-const CollegeList = ({ params }: PageProps) => {
+const CollegeList = () => {
   const asset_url = process.env.NEXT_PUBLIC_ASSET_URL || "https://applymbbs.in";
   const [filters, setFilters] = useState({
     location: "",
@@ -179,7 +164,7 @@ const CollegeList = ({ params }: PageProps) => {
   useEffect(() => {
     setVisibleColleges(filteredColleges.slice(0, 10));
     setHasMore(filteredColleges.length > 10);
-  }, [filters]);
+  }, [filters, filteredColleges]);
 
   useEffect(() => {
     if (loading || !hasMore) return;
@@ -211,7 +196,7 @@ const CollegeList = ({ params }: PageProps) => {
   }, [visibleColleges, hasMore, loading, filteredColleges]);
 
   return (
-    <div style={{ background: "#e2e8f0", padding:"20px" }}>
+    <div style={{ background: "#e2e8f0", padding: "20px" }}>
       <div className="container">
         <div className="cl-college-list-description">
           <h1>
@@ -290,7 +275,6 @@ const CollegeList = ({ params }: PageProps) => {
 
           {/* Right Data Section */}
           <CollegeDataSection
-            filteredColleges={filteredColleges}
             visibleColleges={visibleColleges}
             loading={loading}
             lastCollegeRef={lastCollegeRef}

@@ -2,6 +2,7 @@
 
 import React from "react";
 import "../../../style/collages/collage-page.css";
+import Image from "next/image";
 
 interface CollegePageProps {
   name: string;
@@ -22,14 +23,14 @@ const CollegePage: React.FC<CollegePageProps> = ({
     <div className="cp-page">
       {/* Banner */}
       <div className="cp-banner">
-        <img
+        <Image
           src={`${asset_url}/assets/img/jipmer-entrance.jpg`}
           alt="College Banner"
           className="cp-banner-image"
         />
         <div className="cp-banner-overlay"></div>
         <div className="cp-logo-container">
-          <img
+          <Image
             src={`${asset_url}/assets/images/logo/AIIMS_logo.png`}
             alt="College Logo"
             className="cp-college-logo"

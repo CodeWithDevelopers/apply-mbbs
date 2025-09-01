@@ -1,7 +1,8 @@
 "use client";
 
-import { Dispatch, SetStateAction, RefObject } from "react";
+import { RefObject } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface College {
   rank: number;
@@ -29,7 +30,6 @@ interface Filters {
 }
 
 interface CollegeDataSectionProps {
-  filteredColleges: College[];
   visibleColleges: College[];
   loading: boolean;
   lastCollegeRef: RefObject<HTMLDivElement | null>;
@@ -39,7 +39,6 @@ interface CollegeDataSectionProps {
 }
 
 const CollegeDataSection = ({
-  filteredColleges,
   visibleColleges,
   loading,
   lastCollegeRef,
@@ -73,7 +72,7 @@ const CollegeDataSection = ({
         >
           <div className="college-info">
             <div className="college-cell logo-cell">
-              <img
+              <Image
                 src={`${asset_url}/${college.logo}`}
                 alt={college.name}
                 className="college-logo"

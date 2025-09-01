@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState } from 'react';
-import './TopColleges.css';
-import Image from 'next/image';
+import React, { useState } from "react";
+import "./TopColleges.css";
+import Image from "next/image";
 
 const TopColleges = () => {
-  const asset_url = process.env.NEXT_PUBLIC_ASSET_URL || '';
+  const asset_url = process.env.NEXT_PUBLIC_ASSET_URL || "";
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const colleges = [
     {
       id: 1,
@@ -15,7 +15,7 @@ const TopColleges = () => {
       image: `${asset_url}/assets/img/img-1.jpg`,
       rating: 5,
       reviews: 208,
-      location: "Bhopal"
+      location: "Bhopal",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const TopColleges = () => {
       image: `${asset_url}/assets/img/img-1.jpg`,
       rating: 5,
       reviews: 206,
-      location: "Indore"
+      location: "Indore",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const TopColleges = () => {
       image: `${asset_url}/assets/img/img-1.jpg`,
       rating: 5,
       reviews: 204,
-      location: "Bhopal"
+      location: "Bhopal",
     },
     {
       id: 4,
@@ -39,13 +39,18 @@ const TopColleges = () => {
       image: `${asset_url}/assets/img/img-1.jpg`,
       rating: 5,
       reviews: 201,
-      location: "Dewas"
-    }
+      location: "Dewas",
+    },
   ];
 
   const renderStars = (rating: number) => {
     return [...Array(5)].map((_, index) => (
-      <span key={index} className="star">★</span>
+      <span
+        key={index}
+        className={`star ${index < rating ? "filled" : "empty"}`}
+      >
+        {index < rating ? "★" : "☆"}
+      </span>
     ));
   };
 
@@ -66,7 +71,7 @@ const TopColleges = () => {
             {colleges.map((_, index) => (
               <button
                 key={index}
-                className={`dot ${currentSlide === index ? 'active' : ''}`}
+                className={`dot ${currentSlide === index ? "active" : ""}`}
                 onClick={() => handleDotClick(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -78,8 +83,8 @@ const TopColleges = () => {
           {colleges.map((college) => (
             <div key={college.id} className="college-card">
               <div className="college-image-container">
-                <Image 
-                  src={college.image} 
+                <Image
+                  src={college.image}
                   alt={college.name}
                   className="college-image"
                   width={100}
@@ -89,10 +94,10 @@ const TopColleges = () => {
               <div className="college-info">
                 <h3 className="college-name">{college.name}</h3>
                 <div className="college-rating">
-                  <div className="stars">
-                    {renderStars(college.rating)}
-                  </div>
-                  <span className="review-count">({college.reviews} Reviews)</span>
+                  <div className="stars">{renderStars(college.rating)}</div>
+                  <span className="review-count">
+                    ({college.reviews} Reviews)
+                  </span>
                 </div>
               </div>
             </div>
@@ -103,4 +108,4 @@ const TopColleges = () => {
   );
 };
 
-export default TopColleges; 
+export default TopColleges;

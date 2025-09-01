@@ -74,7 +74,10 @@ export default function Header() {
           setData(result);
           return true;
         } catch (error) {
-          console.error(`Attempt ${retryCount + 1} failed:`, error.message);
+          console.error(
+            `Attempt ${retryCount + 1} failed:`,
+            error instanceof Error ? error.message : String(error)
+          );
           return false;
         }
       };
@@ -192,7 +195,7 @@ export default function Header() {
     );
   }
 
-  const getFullImageUrl = (imagePath) => {
+  const getFullImageUrl = (imagePath: string) => {
     if (!imagePath) return "";
     if (imagePath.startsWith("http")) {
       return imagePath;

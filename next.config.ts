@@ -31,7 +31,15 @@ const nextConfig: NextConfig = {
 
   experimental: {
     optimizeCss: false
-  }
+  },
+
+  webpack: (config, { isServer }) => {
+    // Disable CSS optimization
+    if (!isServer) {
+      config.optimization.minimize = false;
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

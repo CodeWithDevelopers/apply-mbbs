@@ -1,28 +1,30 @@
 "use client";
 
-import React from 'react';
-import './DiscoverColleges.css';
-import Image from 'next/image';
+import React from "react";
+import "./DiscoverColleges.css";
+import Image from "next/image";
 
 declare const process: {
-    env: {
-        NEXT_PUBLIC_ASSET_URL?: string;
-    };
+  env: {
+    NEXT_PUBLIC_ASSET_URL?: string;
+  };
 };
 
 const DiscoverColleges = () => {
-  const asset_url = process.env.NEXT_PUBLIC_ASSET_URL || 'https://applymbbs.in';
+  const asset_url = process.env.NEXT_PUBLIC_ASSET_URL || "https://applymbbs.in";
 
   // Helper function to get full image URL
   const getFullImageUrl = (imagePath: string) => {
-    if (!imagePath) return '';
-    if (imagePath.startsWith('http')) {
+    if (!imagePath) return "";
+    if (imagePath.startsWith("http")) {
       return imagePath;
     }
     // Ensure asset_url ends with a slash if it doesn't already
-    const baseUrl = asset_url.endsWith('/') ? asset_url : `${asset_url}/`;
+    const baseUrl = asset_url.endsWith("/") ? asset_url : `${asset_url}/`;
     // Remove leading slash from imagePath if it exists
-    const cleanImagePath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+    const cleanImagePath = imagePath.startsWith("/")
+      ? imagePath.slice(1)
+      : imagePath;
     return `${baseUrl}${cleanImagePath}`;
   };
 
@@ -34,7 +36,7 @@ const DiscoverColleges = () => {
       rating: 5,
       reviews: 78,
       specialties: ["Health", "Neuroscience"],
-      enrolled: "1,200+ Enrolled"
+      enrolled: "1,200+ Enrolled",
     },
     {
       id: 2,
@@ -43,7 +45,7 @@ const DiscoverColleges = () => {
       rating: 5,
       reviews: 65,
       specialties: ["Education", "Research"],
-      enrolled: "950+ Enrolled"
+      enrolled: "950+ Enrolled",
     },
     {
       id: 3,
@@ -52,13 +54,18 @@ const DiscoverColleges = () => {
       rating: 5,
       reviews: 48,
       specialties: ["Medical", "Research"],
-      enrolled: "1,800+ Enrolled"
-    }
+      enrolled: "1,800+ Enrolled",
+    },
   ];
 
   const renderStars = (rating: number) => {
     return [...Array(5)].map((_, index) => (
-      <span key={index} className="star">★</span>
+      <span
+        key={index}
+        className={`star ${index < rating ? "filled" : "empty"}`}
+      >
+        {index < rating ? "★" : "☆"}
+      </span>
     ));
   };
 
@@ -73,18 +80,18 @@ const DiscoverColleges = () => {
           </h2>
           <button className="view-all-btn">
             View All Colleges
-            <svg 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path 
-                d="M13.5 19L20.5 12L13.5 5" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <path
+                d="M13.5 19L20.5 12L13.5 5"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
               />
             </svg>
@@ -95,8 +102,8 @@ const DiscoverColleges = () => {
           {colleges.map((college) => (
             <div key={college.id} className="discover-card">
               <div className="college-image-wrapper">
-                <Image 
-                  src={college.image} 
+                <Image
+                  src={college.image}
                   alt={college.name}
                   className="college-image"
                   width={100}
@@ -105,9 +112,7 @@ const DiscoverColleges = () => {
               </div>
               <div className="college-content">
                 <div className="rating-row">
-                  <div className="stars">
-                    {renderStars(college.rating)}
-                  </div>
+                  <div className="stars">{renderStars(college.rating)}</div>
                   <span className="reviews">({college.reviews} Reviews)</span>
                 </div>
                 <h3 className="college-title">{college.name}</h3>
@@ -130,4 +135,4 @@ const DiscoverColleges = () => {
   );
 };
 
-export default DiscoverColleges; 
+export default DiscoverColleges;

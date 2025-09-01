@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./AboutPage.module.css";
+import Image from "next/image";
 
 const AboutPage: React.FC = () => {
   const facultyMembers = [
@@ -61,7 +62,7 @@ const AboutPage: React.FC = () => {
           <div className={styles.teamGrid}>
             {facultyMembers.map((member, index) => (
               <div key={index} className={styles.teamCard}>
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
                   className={styles.teamImage}

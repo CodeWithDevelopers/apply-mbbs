@@ -1,32 +1,28 @@
 "use client";
-import AdmissionDetails from "@/app/components/Collage/AdmissionDetails";
-import BrochureSection from "@/app/components/Collage/BrochureSection";
 import CollegeList from "@/app/components/Collage/CollegeList";
 import CollegePage from "@/app/components/Collage/CollegePage";
-import CoursesList from "@/app/components/Collage/CoursesList";
-import InfraStructure from "@/app/components/Collage/InfraStructure";
 import LoadingCollege from "@/app/components/Collage/LoadingCollege";
 import PlacementSection from "@/app/components/Collage/PlacementSection";
 import QnaAccordion from "@/app/components/Collage/QnaAccordion";
-import ReviewList from "@/app/components/Collage/ReviewList";
 import SimilarColleges from "@/app/components/Collage/SimilarColleges";
-import SpecialCategories from "@/app/components/Collage/SpecialCategories";
 import StudentReviews from "@/app/components/Collage/StudentReviews";
 import { Button } from "antd";
 import { useEffect, useState } from "react";
 import "./college.css";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default function CollegeDynamicPage({ params }: PageProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [college, setCollege] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCollege = async () => {
       try {
+        const resolvedParams = await params;
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/api/colleges-and-univercities`
         );
@@ -34,7 +30,7 @@ export default function CollegeDynamicPage({ params }: PageProps) {
 
         // match college by slug
         const foundCollege = data.data.find(
-          (item: any) => item.slug === params.slug
+          (item: { slug: string }) => item.slug === resolvedParams.slug
         );
 
         setCollege(foundCollege || null);
@@ -47,7 +43,7 @@ export default function CollegeDynamicPage({ params }: PageProps) {
     };
 
     fetchCollege();
-  }, [params.slug]);
+  }, [params]);
 
   if (loading) {
     return <LoadingCollege />;

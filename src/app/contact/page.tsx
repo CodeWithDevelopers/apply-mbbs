@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { FormEvent, useState } from "react";
 import styles from "./ContactPage.module.css";
 
@@ -25,7 +25,9 @@ const ContactPage: React.FC = () => {
       <div className={styles.content}>
         <div className={styles.header}>
           <h2>Contact Us</h2>
-          <p>We're here to help! Reach out with any questions or feedback.</p>
+          <p>
+            We&apos;re here to help! Reach out with any questions or feedback.
+          </p>
         </div>
 
         <div className={styles.grid}>
