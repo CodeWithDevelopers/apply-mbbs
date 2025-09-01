@@ -1,0 +1,77 @@
+ 
+
+  /* Subtle overlay for depth */
+  .about-us-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+      z-index: 1;
+  }
+
+  .about-us-card {
+      background: linear-gradient(135deg, #d4f4dd 0%, #fff3e0 100%);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      padding: 40px;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 2;
+  }
+
+  .about-us-card:hover {
+      transform: translateY(-10px);
+  }
+
+  .about-us-title {
+      color: #1a3c34;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+  }
+
+  .about-us-text {
+      color: #333;
+      line-height: 1.9;
+      font-size: 1.1rem;
+  }
+
+  .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+  }
+
+  .feature-icon-green {
+      color: #28a745;
+      font-size: 2rem;
+      margin-right: 15px;
+  }
+
+  .feature-icon-orange {
+      color: #fd7e14;
+      font-size: 2rem;
+      margin-right: 15px;
+  }
+
+  .feature-text {
+      font-size: 1rem;
+      color: #333;
+  }
+
+  @media (max-width: 767px) {
+      .about-us-card {
+          padding: 20px;
+      }
+
+      .about-us-title {
+          font-size: 1.8rem;
+      }
+
+      .about-us-text {
+          font-size: 1rem;
+      }
+  }

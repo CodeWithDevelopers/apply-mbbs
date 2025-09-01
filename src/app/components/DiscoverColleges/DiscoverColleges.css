@@ -1,0 +1,206 @@
+.discover-colleges-section {
+  padding: 80px 24px;
+  background: linear-gradient(135deg, rgba(0, 151, 105, 0.05) 0%, rgba(30, 79, 215, 0.05) 100%);
+}
+
+.discover-colleges-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.discover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.discover-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.title-black {
+  color: #1a202c;
+}
+
+.title-gradient {
+  background: linear-gradient(8deg, #009769, #0d9488 64%, #1e4fd7f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.view-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #009769;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: #008259;
+  transform: translateX(4px);
+}
+
+.view-all-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.view-all-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.discover-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.discover-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 151, 105, 0.1);
+}
+
+.discover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 151, 105, 0.2);
+}
+
+.college-image-wrapper {
+  position: relative;
+  padding-top: 60%; /* 5:3 aspect ratio */
+  overflow: hidden;
+}
+
+.college-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.discover-card:hover .college-image {
+  transform: scale(1.05);
+}
+
+.college-content {
+  padding: 24px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #FBBF24;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.reviews {
+  color: #64748B;
+  font-size: 0.875rem;
+}
+
+.college-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.college-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.specialties,
+.enrolled {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748B;
+  font-size: 0.875rem;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .discover-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .discover-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .discover-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .view-all-btn {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 640px) {
+  .discover-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .discover-title {
+    font-size: 1.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .discover-colleges-section {
+    padding: 60px 16px;
+  }
+  
+  .college-title {
+    font-size: 1.125rem;
+  }
+} 

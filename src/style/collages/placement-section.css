@@ -1,0 +1,187 @@
+/* Placement Banner Container */
+.pl-banner {
+    position: relative;
+    width: 100%;
+    /* padding: 40px 0; */
+    background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+}
+
+/* Container */
+.pl-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Heading */
+.pl-heading-h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Swiper Styles */
+.pl-swiper {
+    padding: 20px 0;
+    margin-bottom: 2rem;
+}
+
+.pl-swiper .swiper-slide {
+    width: 100%;
+    height: auto;
+}
+
+/* Card Styles */
+.pl-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pl-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pl-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.pl-label {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Highlight Colors */
+.pl-blue-bg {
+    background-color: #e6f0fa;
+}
+
+.pl-blue-text {
+    color: #2a69a6;
+}
+
+.pl-green-bg {
+    background-color: #e6f3e6;
+}
+
+.pl-green-text {
+    color: #2a7a2a;
+}
+
+.pl-purple-bg {
+    background-color: #f0e6f6;
+}
+
+.pl-purple-text {
+    color: #5a2a7a;
+}
+
+.pl-yellow-bg {
+    background-color: #fff9e6;
+}
+
+.pl-yellow-text {
+    color: #7a5a2a;
+}
+
+/* Description */
+.pl-description {
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+
+.pl-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.pl-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Navigation and Pagination */
+.pl-swiper .swiper-button-prev,
+.pl-swiper .swiper-button-next {
+    color: #4a90e2;
+    background: rgba(255, 255, 255, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.pl-swiper .swiper-button-prev:hover,
+.pl-swiper .swiper-button-next:hover {
+    background: #4a90e2;
+    color: #fff;
+}
+
+.pl-swiper .swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 0.7;
+}
+
+.pl-swiper .swiper-pagination-bullet-active {
+    background: #4a90e2;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    .pl-heading-h2 {
+        font-size: 1.5rem;
+    }
+
+    .pl-value {
+        font-size: 1.2rem;
+    }
+
+    .pl-label {
+        font-size: 0.9rem;
+    }
+
+    .pl-card {
+        padding: 1rem;
+    }
+
+    .pl-description {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .pl-container {
+        padding: 0 10px;
+    }
+
+    .pl-swiper {
+        padding: 10px 0;
+    }
+
+    .pl-value {
+        font-size: 1rem;
+    }
+
+    .pl-text {
+        font-size: 0.9rem;
+    }
+}

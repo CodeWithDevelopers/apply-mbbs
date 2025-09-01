@@ -1,0 +1,52 @@
+/* .college-banner {
+    background: linear-gradient(120deg, #f8fafc 0%, #e3f0ff 100%);
+    background: linear-gradient(135deg, rgba(114, 197, 180, 0.05) 0%, rgba(100, 167, 217, 0.05) 100%);
+    padding: 80px 0px;
+}
+
+.box-section {
+    padding: 25px 25px;
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
+}
+
+.heading-h1 {
+    font-size: 40px;
+}
+
+.college-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.heading-h2 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.heading-h3 {
+    font-size: 20px;
+}
+
+.college-container h3 {
+    font-size: 30px;
+}
+
+.view-btn {
+    background: black;
+    border-radius: 8px;
+}
+
+.college-banner .ant-collapse-header {
+    align-items: center !important;
+}
+
+.box-section:hover {
+    transform: translateY(-10px);
+    transition: .3s ease;
+    transform: translateY(-10px) scale(1.035);
+    transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
+} */

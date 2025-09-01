@@ -1,0 +1,151 @@
+/* Student Reviews Banner Container */
+.sr-banner {
+    position: relative;
+    width: 100%;
+    padding: 40px 0;
+    background: linear-gradient(to bottom, #f7f7f7, #fafafa);
+}
+
+/* Container */
+.sr-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Heading */
+.sr-heading-h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.sr-highlight {
+    color: #4a90e2;
+}
+
+/* Swiper Styles */
+.sr-swiper {
+    padding: 20px 0;
+}
+
+.sr-swiper .swiper-slide {
+    width: 100%;
+    height: auto;
+}
+
+/* Review Card */
+.sr-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sr-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sr-review-text {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.sr-review-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sr-student-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.sr-verified {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #27ae60;
+}
+
+.sr-icon {
+    margin-right: 5px;
+}
+
+/* Navigation and Pagination */
+.sr-swiper .swiper-button-prev,
+.sr-swiper .swiper-button-next {
+    color: #4a90e2;
+    background: rgba(255, 255, 255, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.sr-swiper .swiper-button-prev:hover,
+.sr-swiper .swiper-button-next:hover {
+    background: #4a90e2;
+    color: #fff;
+}
+
+.sr-swiper .swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 0.7;
+}
+
+.sr-swiper .swiper-pagination-bullet-active {
+    background: #4a90e2;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    .sr-heading-h2 {
+        font-size: 1.5rem;
+    }
+
+    .sr-card {
+        padding: 15px;
+    }
+
+    .sr-student-name {
+        font-size: 1rem;
+    }
+
+    .sr-review-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .sr-container {
+        padding: 0 10px;
+    }
+
+    .sr-card {
+        padding: 10px;
+    }
+
+    .sr-review-text {
+        font-size: 0.9rem;
+    }
+
+    .sr-verified {
+        font-size: 0.8rem;
+    }
+}
