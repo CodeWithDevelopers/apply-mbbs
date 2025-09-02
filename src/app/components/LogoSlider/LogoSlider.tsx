@@ -166,6 +166,8 @@ const LogoSlider = () => {
                     >
                       <div className="university-logo">
                         <Image
+                          width={96}
+                          height={96}
                           src={u.logo}
                           alt={u.name}
                           className="w-24 h-24 object-contain mb-2"
